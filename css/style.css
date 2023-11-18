@@ -1,0 +1,506 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Cedarville+Cursive&display=swap');
+
+:root{
+    --main-color:orange;
+    --black:black;
+    --bg:black;
+    --border:.1rem solid rgba(255,255,255,.3);
+
+}
+
+
+*{
+    margin :0 ; padding:0;
+    box-sizing: border-box;
+    outline:none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.5s linear;
+    font-family: 'Agbalumo', cursive;
+    color:orange;
+}
+
+html{
+    font-size: 82.5%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: var(--bg);
+}
+
+
+html::-webkit-scrollbar-thumb{
+    background: white;
+    border-radius: 5rem;
+}
+
+body{
+    background: var(--bg);
+}
+
+.heading{
+    text-align: center;
+    color:white;
+    text-transform: uppercase;
+    padding-bottom:3.5rem;
+    font-size: 4rem;
+}
+
+.heading span{
+    color:var(--main-color);
+    text-transform:uppercase;
+}
+
+.header{
+    background: var(--bg);
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 7%;
+    border-bottom: var(--border);
+    position: fixed;
+    top:0; left:0; right:0; 
+    z-index: 1000;
+
+}
+
+.header .logo img{
+    height:6rem;
+
+}
+
+.header .navbar a{
+    margin: 0.7rem;
+    font-size: 1.6rem;
+    color:white;
+}
+
+.header .navbar a:hover{
+    color:var(--main-color);
+    border-bottom: .1rem solid var(--main-color);
+    padding-bottom: .1rem;
+    
+}
+
+.header .icons  i{
+    color:white;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 3rem;
+}
+
+.header .icons i:hover{
+    color:var(--main-color);
+}
+
+#menu-btn{
+    flex-direction: row;
+}
+
+.header .search-form{
+    position: absolute;
+    height:5rem;
+    width:50rem;
+    display: flex;
+    align-items: center;
+    top:115%; right:7%;
+    background:white;
+    /* transform:scaleY(0);
+    transform-origin: top; */
+
+}
+
+.header .search-form input{
+    height:100%;
+    width:100%;
+    font-size: 1.6rem;
+    color:var(--black);
+    padding:1rem;
+    text-transform: none;;
+    
+}
+
+.header .search-form label{
+    cursor:pointer;
+    font-size: 2.2rem;
+    color:var(--black);
+    margin-right: 1rem;
+    
+}
+
+.header .search-form label:hover{
+    color:var(--main-color);
+   
+}
+
+.header .search-form {
+    width:90%;
+    right:2rem;
+}
+
+.header .search-form {
+    display: none;
+}
+
+.header .search-form.active {
+    display: flex;
+}
+
+
+/*media queries*/
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 1.5rem 2%;
+    }
+}
+
+@media (max-width:768px){
+    #menu-btn {
+        display: inline-block;
+    }
+
+    .header .navbar {
+        position: absolute;
+        top: 100%; /* Adjust the top value according to your design */
+        right: -100%;
+        background-color: white;
+        width : 30rem;
+        height : calc(100vh - 9rem);
+        /* Other styles for the responsive navbar */
+    }
+
+    .header .navbar.active {
+        right: 0;
+    }
+    .header .navbar a{
+
+       color: var(--black);
+       display: block;
+       margin: 1.5rem;
+       padding:1.5rem;
+       font-size:2rem;
+    }
+}
+
+@media (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+}
+
+.home {
+    min-height: 100vh; /* Adjust the height as needed */
+    width: 100%;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Hide overflow to control banner size */
+    margin-top: 100px; /* Adjust the margin as needed */
+}
+
+.banner img {
+    width: 100%; /* Adjust the width as needed */
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.banner {
+    width: 100%; /* Full width */
+    white-space: nowrap; /* Prevent images from stacking */
+    overflow: hidden; /* Hide overflow to control banner size */
+    position: relative;
+}
+
+.banner-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.5rem; /* Adjust the font size */
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    opacity: 0;
+}
+
+.banner:hover .banner-button {
+    opacity: 1;
+}
+
+.banner-button:hover {
+    background: darken(var(--main-color), 10%);
+}
+
+@media (max-width: 768px) {
+    .home {
+        min-height: 20vh; /* Adjust the height for smaller screens */
+    }
+
+    .banner img {
+        width: 100%; /* Adjust the width for smaller screens */
+    }
+}
+
+@media (max-width: 450px) {
+    .home {
+        min-height: 15vh; /* Adjust the height for even smaller screens */
+    }
+
+    .banner img {
+        width: 100%; /* Adjust the width for even smaller screens */
+    }
+
+    .banner-button {
+        font-size: 1.2rem; /* Adjust the font size for even smaller screens */
+    }
+}
+
+
+/* ... (your existing CSS) */
+
+/* ... (your existing CSS) */
+
+.home {
+    display: flex;
+    flex-direction: column; /* Ensure items are stacked vertically */
+}
+
+.banner img,
+.second-image img {
+    width: 100%; /* Adjust the width as needed */
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.banner,
+.second-image {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px; /* Add some margin to separate the images */
+}
+
+/* ... (your existing CSS) */
+
+.about .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: var(--black);
+    flex-wrap: wrap;
+}
+
+.about .row .image {
+    flex: 1 1 45%; /* Adjust the width of the image */
+    padding: 50px;
+}
+
+.about .row .image img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.about .row .content {
+    flex: 1 1 45%; /* Adjust the width of the content */
+    padding: 2rem;
+    color: white;
+}
+
+.about .row .content h3 {
+    text-align: center;
+    font-size: 4rem;
+    color:var(--main-color);
+}
+
+.about .row .content p{
+    text-align: center;
+    font-size: 2rem;
+    color:white;
+    padding:8rem;
+    margin-bottom: 3rem;
+    line-height: 5rem;
+}
+
+.btn{
+    display: inline-block;
+    background: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    
+}
+
+.about .row .content .btn {
+    /* display: block; */
+    margin-left: 40%;
+}
+
+.about .row .content .btn:hover {
+    background: darken(var(--main-color), 10%);
+}
+
+
+/*-----------new div-----*/
+.about .row-1 {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    background: var(--black);
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.about .row-1 .image {
+    flex: 1 1 45%; /* Adjust the width of the image */
+    padding: 50px;
+}
+
+.about .row-1 .image img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.about .row-1 .content {
+    flex: 1 1 45%; /* Adjust the width of the content */
+    padding: 2rem;
+    color: white;
+}
+
+.about .row-1 .content h3 {
+    text-align: center;
+    font-size: 3rem;
+    color:var(--main-color);
+    margin-top: 0.5px;
+}
+
+.about .row-1 .content p{
+    text-align: center;
+    font-size: 2rem;
+    color:white;
+    padding:4rem;
+    margin-bottom: 3rem;
+    line-height: 3rem;
+}
+
+.btn{
+    display: inline-block;
+    background: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    
+}
+
+.about .row-1 .content .btn {
+    /* display: block; */
+    margin-left: 40%;
+}
+
+.about .row-1 .content .btn:hover {
+    background: darken(var(--main-color), 10%);
+}
+
+.menu .box-container{
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+    color:bisque;
+}
+
+.menu .box-container .box{
+    padding:5rem;
+    text-align: center;
+    background: var(--border);
+}
+
+.menu .box-container .box .img{
+    height:10rem;
+}
+
+.menu .box-container .box h3{
+    color:white;
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+.menu .box-container .box .price{
+    color:white;
+    font-size: 2.5rem;
+    margin: .5rem 0;
+}
+
+.menu .box-container .box:hover{
+    background:white;
+}
+
+.menu .box-container .box:hover>*{
+    background:var(--black);
+}
+
+
+
+.products .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.products .box-container .box {
+    padding: 2rem;
+    text-align: center;
+    background: var(--border);
+
+}
+
+
+.products .box-container .box img {
+    /* width: 100%;
+    height: 100%; */
+    object-fit: cover;
+}
+
+.products .box-container .box h3 {
+    color: white;
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+.products .box-container .box .price {
+    color: white;
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+}
+
+.products .box-container .box:hover {
+    background: white;
+}
+
+.products .box-container .box:hover > * {
+    background: var(--black);
+}
+
+
